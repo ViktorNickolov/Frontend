@@ -1,4 +1,6 @@
 import React from 'react';
+import {Route} from "react-router-dom";
+import Client from "../Client";
 
 const AddButton = () => (
     <div className="content buttons-with-margin">
