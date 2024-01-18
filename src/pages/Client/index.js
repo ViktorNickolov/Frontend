@@ -1,9 +1,8 @@
 import React from 'react';
 import Table from "./Table";
-import Button from "./AddButton";
-import generateClientData from "./generateClientData";
 
-const data = generateClientData(5);
+const data = fetch('http://localhost:8080/api/v1/clients');
+console.log(data)
 
 const Client = () => (
     <div className="container-fluid">

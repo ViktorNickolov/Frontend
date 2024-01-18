@@ -4,7 +4,7 @@ import Button from "./AddButton";
 const Table = ({data}) => (
     <div className="card">
         <div className="header">
-            <h4 className="title">Striped Table with Hover</h4>
+            <h4 className="title">CLIENTS</h4>
             <p className="category">Here is a subtitle for this table</p>
         </div>
         <div className="text-right">
@@ -16,25 +16,19 @@ const Table = ({data}) => (
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Salary</th>
-                    <th>Country</th>
-                    <th>City</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                 </tr>
                 </thead>
                 <tbody>
-                {data.map(item => (
-                    <tr key={item.id}>
-                        <td>{item.id}</td>
-                        <td>{item.name}</td>
-                        <td>$ {item.salary}</td>
-                        <td>{item.country}</td>
-                        <td>{item.city}</td>
+                {[data].map((item, index) => (
+                    <tr key={index + 1}>
+                        <td>{item.firstName}</td>
+                        <td>{item.lastName}</td>
                     </tr>
                 ))}
                 </tbody>
             </table>
-
         </div>
     </div>
 );

@@ -1,21 +1,16 @@
 import faker from 'faker';
+import generateClientData from "../Client/generateClientData";
 
-export default (limit = 5, arrayData = false) => {
+export default (limit = generateClientData, arrayData = true) => {
   const data = [];
   for (let i = 1; i <= limit; i++) {
     let row = null;
     if (arrayData) {
       row = [
         i,
-        faker.name.findName(),
-        faker.finance.amount(),
-        faker.address.country(),
-        faker.image.avatar(),
-        faker.address.city(),
-        faker.name.jobTitle(),
-        faker.lorem.sentence(),
-        faker.random.boolean(),
-        faker.date.past()
+        generateClientData.first_name,
+        generateClientData.last_name,
+
       ];
     } else {
       row = {
