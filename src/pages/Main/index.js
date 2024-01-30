@@ -22,6 +22,7 @@ import Charts from '../Charts';
 import Calendar from '../Calendar';
 import Tables from '../Tables';
 import Client from '../Client';
+import AddClient from "../AddClient/AddClient";
 
 const Main = ({
   mobileNavVisibility,
@@ -49,6 +50,7 @@ const Main = ({
           <Route path="/forms" component={Forms} />
           <Route path="/tables" component={Tables} />
           <Route path="/client" component={Client} />
+          <Route path="/add-client" component={AddClient} />
           <Route path="/maps" component={MapsPage} />
           <Route path="/charts" component={Charts} />
           <Route path="/calendar" component={Calendar} />

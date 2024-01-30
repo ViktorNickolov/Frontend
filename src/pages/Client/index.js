@@ -1,17 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Table from "./Table";
+import AddClient from "../AddClient/AddClient";
 
-const data = fetch('http://localhost:8080/api/v1/clients');
-console.log(data)
+const Client = () => {
+    const [data, setData] = useState([]);
 
-const Client = () => (
-    <div className="container-fluid">
-        <div className="row">
-            <div className="col-md-12">
-                <Table data={data} />
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('http://localhost:8080/api/v1/clients');
+                const jsonData = await response.json();
+                setData(jsonData);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, []); // The empty dependency array ensures that useEffect runs only once, similar to componentDidMount
+
+    return (
+        <div className="container-fluid">
+            <div className="row">
+                <div className="col-md-12">
+                    <Table data={data} />
+                </div>
             </div>
         </div>
-    </div>
-);
+    );
+};
 
 export default Client;

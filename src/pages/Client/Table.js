@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from "./AddButton";
+import AddClient from "../AddClient/AddClient";
 
 const Table = ({data}) => (
     <div className="card">
@@ -21,8 +22,9 @@ const Table = ({data}) => (
                 </tr>
                 </thead>
                 <tbody>
-                {[data].map((item, index) => (
-                    <tr key={index + 1}>
+                {Array.isArray(data) && data.map((item, index) => (
+                    <tr>
+                        <td>{index+1}</td>
                         <td>{item.firstName}</td>
                         <td>{item.lastName}</td>
                     </tr>
